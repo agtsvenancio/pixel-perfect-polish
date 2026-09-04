@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useRef, useState, type FormEvent } from "react";
 
 import heroImage from "@/assets/casting-hero.jpg";
@@ -62,6 +62,7 @@ function CastingPage() {
           <a href="#casting">O casting</a>
           <a href="#perfil">Perfil</a>
           <a href="#editorial">Editorial</a>
+          <Link to="/feminino" className="nav-switch">Feminino</Link>
         </nav>
         <button className="header-cta" type="button" onClick={goToForm}>Inscreva-se</button>
       </header>
