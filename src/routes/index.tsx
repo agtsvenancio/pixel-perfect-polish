@@ -9,7 +9,7 @@ import f4 from "@/assets/fem-f4.jpg";
 import f5 from "@/assets/fem-f5.jpg";
 import f6 from "@/assets/fem-f6.jpg";
 import f7 from "@/assets/fem-f7.jpg";
-import logoImg from "@/assets/bossa-logo";
+import logoImg from "@/assets/bossa-logo.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -20,8 +20,6 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: "Seu rosto pode ser o próximo destaque da moda. Envie sua candidatura." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:image", content: heroImg },
-      { name: "twitter:image", content: heroImg },
     ],
   }),
   component: CastingFemininoPage,
