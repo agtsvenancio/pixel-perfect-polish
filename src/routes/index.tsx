@@ -1,31 +1,34 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useRef, useState, type FormEvent } from "react";
 
-import heroImage from "@/assets/casting-hero.jpg";
-import combImage from "@/assets/editorial-comb.jpg";
-import knitImage from "@/assets/editorial-knit.jpg";
-import portraitImage from "@/assets/editorial-portrait.jpg";
-import layeredImage from "@/assets/editorial-layered.jpg";
-import monoImage from "@/assets/editorial-monochrome.jpg";
-import carImage from "@/assets/editorial-car.jpg";
+import heroAsset from "@/assets/fem-hero.jpg.asset.json";
+import f1 from "@/assets/fem-f1.jpg.asset.json";
+import f2 from "@/assets/fem-f2.jpg.asset.json";
+import f3 from "@/assets/fem-f3.jpg.asset.json";
+import f4 from "@/assets/fem-f4.jpg.asset.json";
+import f5 from "@/assets/fem-f5.jpg.asset.json";
+import f6 from "@/assets/fem-f6.jpg.asset.json";
+import f7 from "@/assets/fem-f7.jpg.asset.json";
 import logoAsset from "@/assets/bossa-logo.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Casting Masculino | Novos Talentos" },
-      { name: "description", content: "Casting profissional para novos modelos masculinos. Inscreva-se para campanhas, publicidade e projetos de moda." },
-      { property: "og:title", content: "Casting Masculino | Novos Talentos" },
+      { title: "Casting Feminino | Novos Talentos" },
+      { name: "description", content: "Casting profissional para novas modelos femininas. Inscreva-se para campanhas, publicidade e projetos de moda." },
+      { property: "og:title", content: "Casting Feminino | Novos Talentos" },
       { property: "og:description", content: "Seu rosto pode ser o próximo destaque da moda. Envie sua candidatura." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:image", content: heroAsset.url },
+      { name: "twitter:image", content: heroAsset.url },
     ],
   }),
-  component: CastingPage,
+  component: CastingFemininoPage,
 });
 
 const profile = [
-  ["01", "Idade", "Homens maiores de 18 anos"],
+  ["01", "Idade", "Mulheres maiores de 18 anos"],
   ["02", "Presença", "Boa presença diante das câmeras"],
   ["03", "Identidade", "Diferentes estilos e personalidades"],
   ["04", "Experiência", "Com ou sem experiência profissional"],
@@ -34,15 +37,15 @@ const profile = [
 const process = ["Cadastro", "Avaliação do perfil", "Contato da equipe", "Possíveis oportunidades"];
 
 const gallery = [
-  { src: knitImage, alt: "Modelo masculino em editorial de moda com tricô marrom", span: "gallery-tall" },
-  { src: monoImage, alt: "Retrato masculino editorial em preto e branco", span: "gallery-short" },
-  { src: combImage, alt: "Editorial masculino em preto e branco", span: "gallery-wide" },
-  { src: layeredImage, alt: "Modelo masculino em produção de moda neutra", span: "gallery-short" },
-  { src: carImage, alt: "Modelo masculino em campanha editorial automotiva", span: "gallery-tall" },
-  { src: portraitImage, alt: "Retrato de beleza masculino", span: "gallery-short" },
+  { src: f1.url, alt: "Retrato feminino editorial em preto e branco", span: "gallery-tall" },
+  { src: f2.url, alt: "Modelo feminina em editorial de moda com alfaiataria", span: "gallery-short" },
+  { src: f3.url, alt: "Modelo feminina em produção de moda com poás", span: "gallery-wide" },
+  { src: f4.url, alt: "Modelo feminina em editorial externo", span: "gallery-short" },
+  { src: f5.url, alt: "Retrato feminino em preto e branco com pelo", span: "gallery-tall" },
+  { src: f6.url, alt: "Retrato de beleza feminino", span: "gallery-short" },
 ];
 
-function CastingPage() {
+function CastingFemininoPage() {
   const formRef = useRef<HTMLDivElement>(null);
   const [sent, setSent] = useState(false);
   const [files, setFiles] = useState(0);
@@ -67,13 +70,13 @@ function CastingPage() {
       </header>
 
       <section className="hero" id="top">
-        <img src={heroImage} alt="Modelo masculino em fotografia editorial de moda" fetchPriority="high" />
+        <img src={heroAsset.url} alt="Modelo feminina em fotografia editorial de moda" fetchPriority="high" />
         <div className="hero-shade" />
         <p className="hero-index">CASTING ABERTO<br />BRASIL · 2026</p>
         <div className="hero-copy">
           <h1>Seu rosto pode ser<br />o próximo destaque<br />da moda.</h1>
           <div className="hero-bottom">
-            <p>Estamos buscando novos talentos masculinos para campanhas, publicidade e trabalhos fashion.</p>
+            <p>Estamos buscando novos talentos femininos para campanhas, publicidade e trabalhos fashion.</p>
             <button type="button" className="light-cta" onClick={goToForm}>Quero participar do casting</button>
           </div>
         </div>
@@ -84,7 +87,7 @@ function CastingPage() {
         <div className="intro-grid">
           <h2>Mais que um rosto.<br /><em>Uma presença.</em></h2>
           <div>
-            <p className="lead">Buscamos homens com personalidade, presença e potencial para representar marcas e projetos de moda.</p>
+            <p className="lead">Buscamos mulheres com personalidade, presença e potencial para representar marcas e projetos de moda.</p>
             <div className="disciplines" aria-label="Áreas de atuação">
               {['Trabalhos comerciais', 'Campanhas', 'Fotografia', 'Moda'].map((item) => <span key={item}>{item}</span>)}
             </div>
@@ -153,7 +156,7 @@ function CastingPage() {
             <label className="field">Cidade<input name="city" required maxLength={80} autoComplete="address-level2" /></label>
             <label className="field">Telefone<input name="phone" type="tel" required maxLength={20} autoComplete="tel" /></label>
             <label className="field">Instagram<input name="instagram" maxLength={50} placeholder="@seuperfil" /></label>
-            <label className="field">Altura<input name="height" required maxLength={10} placeholder="Ex.: 1,82 m" /></label>
+            <label className="field">Altura<input name="height" required maxLength={10} placeholder="Ex.: 1,74 m" /></label>
             <label className="field field-wide">Experiência<textarea name="experience" maxLength={600} rows={3} placeholder="Conte brevemente sobre você e sua experiência, se houver." /></label>
             <label className="upload field-wide">
               <input type="file" accept="image/jpeg,image/png,image/webp" multiple required onChange={(e) => setFiles(e.currentTarget.files?.length ?? 0)} />
@@ -166,11 +169,11 @@ function CastingPage() {
       </section>
 
       <section className="final-cta">
-        <img src={combImage} alt="Modelo em sessão editorial de moda" loading="lazy" />
+        <img src={f7.url} alt="Modelo feminina em sessão editorial de moda" loading="lazy" />
         <div className="final-shade" />
         <div>
           <p className="kicker">Seu próximo capítulo</p>
-          <h2>Pronto para começar<br />sua jornada como modelo?</h2>
+          <h2>Pronta para começar<br />sua jornada como modelo?</h2>
           <button type="button" className="light-cta" onClick={goToForm}>Faça sua inscrição</button>
         </div>
       </section>
