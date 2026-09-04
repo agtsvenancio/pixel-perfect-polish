@@ -1,15 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useRef, useState, type FormEvent } from "react";
 
-import heroAsset from "@/assets/fem-hero.jpg.asset.json";
-import f1 from "@/assets/fem-f1.jpg.asset.json";
-import f2 from "@/assets/fem-f2.jpg.asset.json";
-import f3 from "@/assets/fem-f3.jpg.asset.json";
-import f4 from "@/assets/fem-f4.jpg.asset.json";
-import f5 from "@/assets/fem-f5.jpg.asset.json";
-import f6 from "@/assets/fem-f6.jpg.asset.json";
-import f7 from "@/assets/fem-f7.jpg.asset.json";
-import logoAsset from "@/assets/bossa-logo.asset.json";
+import heroImg from "@/assets/fem-hero.jpg";
+import f1 from "@/assets/fem-f1.jpg";
+import f2 from "@/assets/fem-f2.jpg";
+import f3 from "@/assets/fem-f3.jpg";
+import f4 from "@/assets/fem-f4.jpg";
+import f5 from "@/assets/fem-f5.jpg";
+import f6 from "@/assets/fem-f6.jpg";
+import f7 from "@/assets/fem-f7.jpg";
+import logoImg from "@/assets/bossa-logo";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -20,8 +20,8 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: "Seu rosto pode ser o próximo destaque da moda. Envie sua candidatura." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:image", content: heroAsset.url },
-      { name: "twitter:image", content: heroAsset.url },
+      { property: "og:image", content: heroImg },
+      { name: "twitter:image", content: heroImg },
     ],
   }),
   component: CastingFemininoPage,
@@ -37,12 +37,12 @@ const profile = [
 const process = ["Cadastro", "Avaliação do perfil", "Contato da equipe", "Possíveis oportunidades"];
 
 const gallery = [
-  { src: f1.url, alt: "Retrato feminino editorial em preto e branco", span: "gallery-tall" },
-  { src: f2.url, alt: "Modelo feminina em editorial de moda com alfaiataria", span: "gallery-short" },
-  { src: f3.url, alt: "Modelo feminina em produção de moda com poás", span: "gallery-wide" },
-  { src: f4.url, alt: "Modelo feminina em editorial externo", span: "gallery-short" },
-  { src: f5.url, alt: "Retrato feminino em preto e branco com pelo", span: "gallery-tall" },
-  { src: f6.url, alt: "Retrato de beleza feminino", span: "gallery-short" },
+  { src: f1, alt: "Retrato feminino editorial em preto e branco", span: "gallery-tall" },
+  { src: f2, alt: "Modelo feminina em editorial de moda com alfaiataria", span: "gallery-short" },
+  { src: f3, alt: "Modelo feminina em produção de moda com poás", span: "gallery-wide" },
+  { src: f4, alt: "Modelo feminina em editorial externo", span: "gallery-short" },
+  { src: f5, alt: "Retrato feminino em preto e branco com pelo", span: "gallery-tall" },
+  { src: f6, alt: "Retrato de beleza feminino", span: "gallery-short" },
 ];
 
 function CastingFemininoPage() {
@@ -60,7 +60,7 @@ function CastingFemininoPage() {
   return (
     <main>
       <header className="site-header">
-        <a className="wordmark" href="#top" aria-label="Bossa Mkt — início"><img src={logoAsset.url} alt="Bossa Mkt" /></a>
+        <a className="wordmark" href="#top" aria-label="Bossa Mkt — início"><img src={logoImg} alt="Bossa Mkt" /></a>
         <nav aria-label="Navegação principal">
           <a href="#casting">O casting</a>
           <a href="#perfil">Perfil</a>
@@ -70,7 +70,7 @@ function CastingFemininoPage() {
       </header>
 
       <section className="hero" id="top">
-        <img src={heroAsset.url} alt="Modelo feminina em fotografia editorial de moda" fetchPriority="high" />
+        <img src={heroImg} alt="Modelo feminina em fotografia editorial de moda" fetchPriority="high" />
         <div className="hero-shade" />
         <p className="hero-index">CASTING ABERTO<br />BRASIL · 2026</p>
         <div className="hero-copy">
@@ -169,7 +169,7 @@ function CastingFemininoPage() {
       </section>
 
       <section className="final-cta">
-        <img src={f7.url} alt="Modelo feminina em sessão editorial de moda" loading="lazy" />
+        <img src={f7} alt="Modelo feminina em sessão editorial de moda" loading="lazy" />
         <div className="final-shade" />
         <div>
           <p className="kicker">Seu próximo capítulo</p>
@@ -179,7 +179,7 @@ function CastingFemininoPage() {
       </section>
 
       <footer>
-        <a className="wordmark" href="#top"><img src={logoAsset.url} alt="Bossa Mkt" /></a>
+        <a className="wordmark" href="#top"><img src={logoImg} alt="Bossa Mkt" /></a>
         <p>Novos talentos · Brasil</p>
         <p>© 2026</p>
       </footer>
