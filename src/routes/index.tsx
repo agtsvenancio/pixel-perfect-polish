@@ -8,6 +8,7 @@ import portraitImage from "@/assets/editorial-portrait.jpg";
 import layeredImage from "@/assets/editorial-layered.jpg";
 import monoImage from "@/assets/editorial-monochrome.jpg";
 import carImage from "@/assets/editorial-car.jpg";
+import logoAsset from "@/assets/bossa-logo.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -41,10 +42,6 @@ const gallery = [
   { src: portraitImage, alt: "Retrato de beleza masculino", span: "gallery-short" },
 ];
 
-function Arrow() {
-  return <span aria-hidden="true">↗</span>;
-}
-
 function CastingPage() {
   const formRef = useRef<HTMLDivElement>(null);
   const [sent, setSent] = useState(false);
@@ -60,13 +57,13 @@ function CastingPage() {
   return (
     <main>
       <header className="site-header">
-        <a className="wordmark" href="#top" aria-label="Casting Masculino — início">CASTING<br />MASCULINO</a>
+        <a className="wordmark" href="#top" aria-label="Bossa Mkt — início"><img src={logoAsset.url} alt="Bossa Mkt" /></a>
         <nav aria-label="Navegação principal">
           <a href="#casting">O casting</a>
           <a href="#perfil">Perfil</a>
           <a href="#editorial">Editorial</a>
         </nav>
-        <button className="header-cta" type="button" onClick={goToForm}>Inscreva-se <Arrow /></button>
+        <button className="header-cta" type="button" onClick={goToForm}>Inscreva-se</button>
       </header>
 
       <section className="hero" id="top">
@@ -77,7 +74,7 @@ function CastingPage() {
           <h1>Seu rosto pode ser<br />o próximo destaque<br />da moda.</h1>
           <div className="hero-bottom">
             <p>Estamos buscando novos talentos masculinos para campanhas, publicidade e trabalhos fashion.</p>
-            <button type="button" className="light-cta" onClick={goToForm}>Quero participar do casting <Arrow /></button>
+            <button type="button" className="light-cta" onClick={goToForm}>Quero participar do casting</button>
           </div>
         </div>
       </section>
@@ -117,7 +114,7 @@ function CastingPage() {
             <li key={item}><span>{String(index + 1).padStart(2, '0')}</span><strong>{item}</strong></li>
           ))}
         </ol>
-        <button type="button" className="dark-cta process-cta" onClick={goToForm}>Inscreva-se <Arrow /></button>
+        <button type="button" className="dark-cta process-cta" onClick={goToForm}>Inscreva-se</button>
       </section>
 
       <section className="editorial" id="editorial">
@@ -147,7 +144,7 @@ function CastingPage() {
             <p className="kicker">Candidatura recebida</p>
             <h2>Obrigado pelo seu interesse.</h2>
             <p>Seu perfil foi preparado para avaliação. Esta demonstração não envia os dados para uma agência.</p>
-            <button type="button" className="dark-cta" onClick={() => setSent(false)}>Enviar outra candidatura <Arrow /></button>
+            <button type="button" className="dark-cta" onClick={() => setSent(false)}>Enviar outra candidatura</button>
           </div>
         ) : (
           <form onSubmit={submit}>
@@ -163,7 +160,7 @@ function CastingPage() {
               <span>Upload de fotos</span><strong>{files ? `${files} foto${files > 1 ? 's' : ''} selecionada${files > 1 ? 's' : ''}` : 'Selecione de 2 a 5 fotos naturais'}</strong><b>＋</b>
             </label>
             <p className="privacy field-wide">Ao enviar, você confirma que tem mais de 18 anos e autoriza a análise das imagens para fins de casting.</p>
-            <button className="dark-cta field-wide" type="submit">Enviar candidatura <Arrow /></button>
+            <button className="dark-cta field-wide" type="submit">Enviar candidatura</button>
           </form>
         )}
       </section>
@@ -174,12 +171,12 @@ function CastingPage() {
         <div>
           <p className="kicker">Seu próximo capítulo</p>
           <h2>Pronto para começar<br />sua jornada como modelo?</h2>
-          <button type="button" className="light-cta" onClick={goToForm}>Faça sua inscrição <Arrow /></button>
+          <button type="button" className="light-cta" onClick={goToForm}>Faça sua inscrição</button>
         </div>
       </section>
 
       <footer>
-        <a className="wordmark" href="#top">CASTING<br />MASCULINO</a>
+        <a className="wordmark" href="#top"><img src={logoAsset.url} alt="Bossa Mkt" /></a>
         <p>Novos talentos · Brasil</p>
         <p>© 2026</p>
       </footer>
